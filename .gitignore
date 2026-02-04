@@ -1,0 +1,21 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Production
+/build
+/.next/
+/out/
+
+# Environment variables
+.env*.local
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts

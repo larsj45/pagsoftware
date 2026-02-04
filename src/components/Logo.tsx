@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 interface LogoProps {
   variant?: 'color' | 'black' | 'white';
   size?: 'sm' | 'md' | 'lg';
@@ -12,9 +10,9 @@ export default function Logo({
   className = '' 
 }: LogoProps) {
   const sizeClasses = {
-    sm: 'h-8 w-auto',
-    md: 'h-12 w-auto', 
-    lg: 'h-16 w-auto'
+    sm: 'h-8',
+    md: 'h-12', 
+    lg: 'h-16'
   };
 
   const logoSrc = {
@@ -24,13 +22,10 @@ export default function Logo({
   };
 
   return (
-    <Image
+    <img
       src={logoSrc[variant]}
       alt="PagSoftware"
-      width={200}
-      height={60}
-      className={`${sizeClasses[size]} ${className}`}
-      priority
+      className={`${sizeClasses[size]} w-auto ${className}`}
     />
   );
 }

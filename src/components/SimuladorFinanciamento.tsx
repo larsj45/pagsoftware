@@ -56,28 +56,33 @@ Aguardo contato para prosseguir!`;
   };
 
   return (
-    <div className={`bg-white rounded-2xl shadow-xl p-8 ${className}`}>
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">
-        Simule seu financiamento
-      </h3>
+    <div className={`glass-dark rounded-3xl p-8 backdrop-blur-xl border border-white/10 ${className}`}>
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-bold text-white mb-2">
+          Simule seu Financiamento
+        </h3>
+        <p className="text-white/60 text-sm">
+          Descubra em segundos quanto vai pagar
+        </p>
+      </div>
       
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Valor do software
+          <label className="block text-sm font-semibold text-white/80 mb-3">
+            💰 Valor do Software
           </label>
           <input
             type="text"
             value={valor}
             onChange={(e) => setValor(formatarMoeda(e.target.value))}
             placeholder="R$ 10.000,00"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+            className="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-xl text-white text-lg font-semibold focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300 placeholder-white/40"
           />
         </div>
         
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Número de parcelas: {parcelas}x
+          <label className="block text-sm font-semibold text-white/80 mb-3">
+            📅 Parcelas: <span className="text-sky-400 text-lg">{parcelas}x</span>
           </label>
           <input
             type="range"
@@ -85,49 +90,59 @@ Aguardo contato para prosseguir!`;
             max="36"
             value={parcelas}
             onChange={(e) => setParcelas(parseInt(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+            className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer slider"
+            style={{
+              background: `linear-gradient(to right, #0ea5e9 0%, #0ea5e9 ${((parcelas - 3) / 33) * 100}%, rgba(255,255,255,0.1) ${((parcelas - 3) / 33) * 100}%, rgba(255,255,255,0.1) 100%)`
+            }}
           />
-          <div className="flex justify-between text-xs text-gray-500 mt-1">
+          <div className="flex justify-between text-xs text-white/50 mt-2">
             <span>3x</span>
             <span>36x</span>
           </div>
         </div>
 
         {resultado && (
-          <div className="bg-blue-50 rounded-lg p-4 space-y-3">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Parcela mensal:</span>
-              <span className="font-semibold text-lg text-blue-600">
-                {new Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL'
-                }).format(resultado.valorParcela)}
-              </span>
+          <div className="glass rounded-2xl p-6 space-y-4 border border-white/10">
+            <h4 className="text-lg font-bold text-white mb-4">📊 Resumo do Financiamento</h4>
+            
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-white/70 font-medium">Parcela mensal:</span>
+                <span className="font-bold text-xl text-emerald-400">
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(resultado.valorParcela)}
+                </span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-white/70 font-medium">Total a pagar:</span>
+                <span className="font-semibold text-lg text-white">
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(resultado.valorTotal)}
+                </span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-white/70 font-medium">Juros total:</span>
+                <span className="font-semibold text-lg text-orange-400">
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(resultado.jurosTotal)}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Total a pagar:</span>
-              <span className="font-semibold">
-                {new Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL'
-                }).format(resultado.valorTotal)}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Juros total:</span>
-              <span className="font-semibold">
-                {new Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL'
-                }).format(resultado.jurosTotal)}
-              </span>
-            </div>
-            <div className="pt-3 border-t border-blue-200">
+            
+            <div className="pt-4 border-t border-white/10">
               <button 
                 onClick={handleSolicitarFinanciamento}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:from-green-400 hover:to-emerald-500 transition-all duration-300 shadow-lg hover:shadow-green-500/25 transform hover:scale-105"
               >
-                Solicitar via WhatsApp
+                🚀 Solicitar via WhatsApp
               </button>
             </div>
           </div>

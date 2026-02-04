@@ -4,137 +4,214 @@ import SimuladorFinanciamento from '@/components/SimuladorFinanciamento';
 import Logo from '@/components/Logo';
 
 export default function Home() {
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen gradient-bg">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-4">
+      <header className="glass-dark border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex flex-col">
-              <Logo variant="color" size="md" />
-              <p className="text-sm text-gray-600 mt-1">Financiamento para Software B2B</p>
+            <div className="flex items-center space-x-4">
+              <Logo variant="white" size="md" />
+              <div className="hidden md:block w-px h-8 bg-white/20"></div>
+              <p className="hidden md:block text-white/80 text-sm font-medium">
+                Financiamento B2B Inteligente
+              </p>
             </div>
             <button 
               onClick={() => window.open('https://wa.me/5511973531005?text=Olá! Gostaria de saber mais sobre o PagSoftware.', '_blank')}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-sky-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-sky-500/25"
             >
-              Fale Conosco
+              Falar Conosco
             </button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Compre software B2B <span className="text-blue-600">parcelado</span>
+      <section className="py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-8">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span className="text-white/80 text-sm font-medium">Plataforma Ativa</span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6">
+                Financiamento{' '}
+                <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  B2B
+                </span>{' '}
+                Inteligente
               </h1>
-              <p className="text-xl text-gray-600 mt-6">
-                Fornecedores recebem à vista, compradores pagam mensalmente. 
-                Simples, rápido e sem burocracia.
+              
+              <p className="text-xl lg:text-2xl text-white/70 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Transforme a aquisição de software em vantagem competitiva. 
+                <span className="text-white font-semibold"> Fornecedores recebem à vista</span>, 
+                compradores pagam parcelado.
               </p>
               
-              <div className="flex flex-wrap gap-4 mt-8">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">Taxa fixa de 2,5% a.m.</span>
+              {/* Features */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                <div className="glass rounded-2xl p-4 text-center">
+                  <div className="text-sky-400 text-2xl font-bold mb-1">2.5%</div>
+                  <div className="text-white/60 text-sm">Taxa mensal fixa</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">Aprovação em 24h</span>
+                <div className="glass rounded-2xl p-4 text-center">
+                  <div className="text-emerald-400 text-2xl font-bold mb-1">24h</div>
+                  <div className="text-white/60 text-sm">Aprovação rápida</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">100% online</span>
+                <div className="glass rounded-2xl p-4 text-center">
+                  <div className="text-purple-400 text-2xl font-bold mb-1">100%</div>
+                  <div className="text-white/60 text-sm">Digital</div>
                 </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <button 
+                  onClick={() => document.querySelector('#simulador')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-sky-400 hover:to-blue-500 transition-all duration-300 shadow-xl hover:shadow-sky-500/30 transform hover:scale-105"
+                >
+                  Simular Agora
+                </button>
+                <button 
+                  onClick={() => window.location.href = '/como-funciona'}
+                  className="glass text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+                >
+                  Como Funciona
+                </button>
               </div>
             </div>
 
-            {/* Simulador */}
-            <SimuladorFinanciamento />
+            {/* Right - Simulador */}
+            <div id="simulador" className="float">
+              <SimuladorFinanciamento />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Como Funciona */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Como funciona
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">1</span>
+      {/* Features Section */}
+      <section className="py-20 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Por que escolher o{' '}
+              <span className="bg-gradient-to-r from-sky-400 to-purple-600 bg-clip-text text-transparent">
+                PagSoftware?
+              </span>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              A plataforma que revoluciona a aquisição de software B2B no Brasil
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="glass-dark rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span className="text-2xl">⚡</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Escolha o software</h3>
-              <p className="text-gray-600">
-                Selecione o software B2B que precisa e configure o financiamento.
+              <h3 className="text-2xl font-bold text-white mb-4">Aprovação Instantânea</h3>
+              <p className="text-white/70 leading-relaxed">
+                Algoritmos inteligentes analisam seu perfil e aprovam em até 24 horas. Sem burocracia, sem papelada.
               </p>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">2</span>
+
+            {/* Feature 2 */}
+            <div className="glass-dark rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span className="text-2xl">💰</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Aprovação rápida</h3>
-              <p className="text-gray-600">
-                Análise automatizada com resposta em até 24 horas.
+              <h3 className="text-2xl font-bold text-white mb-4">Taxa Competitiva</h3>
+              <p className="text-white/70 leading-relaxed">
+                2.5% ao mês fixo. Transparente, sem taxas ocultas. Compare com cartão empresarial e comprove.
               </p>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">3</span>
+
+            {/* Feature 3 */}
+            <div className="glass-dark rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span className="text-2xl">🚀</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Pague mensalmente</h3>
-              <p className="text-gray-600">
-                O fornecedor recebe à vista e você paga em parcelas fixas.
+              <h3 className="text-2xl font-bold text-white mb-4">Fluxo Otimizado</h3>
+              <p className="text-white/70 leading-relaxed">
+                Fornecedor recebe à vista, você paga mensalmente. Win-win que acelera negócios de ambos os lados.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="glass-dark rounded-4xl p-12 lg:p-16">
+            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              Pronto para revolucionar suas aquisições de software?
+            </h3>
+            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+              Junte-se às empresas que já descobriram a forma inteligente de financiar tecnologia.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => document.querySelector('#simulador')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:from-sky-400 hover:to-blue-500 transition-all duration-300 shadow-xl hover:shadow-sky-500/30"
+              >
+                Começar Agora
+              </button>
+              <button 
+                onClick={() => window.open('https://wa.me/5511973531005?text=Olá! Gostaria de uma demo personalizada do PagSoftware.', '_blank')}
+                className="glass text-white px-10 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+              >
+                Agendar Demo
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="mb-4">
+      <footer className="border-t border-white/10 bg-black/20">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="md:col-span-2">
+              <div className="mb-6">
                 <Logo variant="white" size="md" />
               </div>
-              <p className="text-gray-400">
-                Facilitando o acesso a software B2B através de financiamento inteligente.
+              <p className="text-white/60 leading-relaxed max-w-md">
+                Plataforma de financiamento B2B que conecta fornecedores e compradores de software, 
+                otimizando fluxo de caixa e acelerando negócios.
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Produto</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="/como-funciona" className="hover:text-white">Como funciona</a></li>
-                <li><a href="#" className="hover:text-white">Simulador</a></li>
-                <li><a href="#" className="hover:text-white">Taxa de juros</a></li>
+              <h4 className="font-bold text-white mb-4">Produto</h4>
+              <ul className="space-y-3 text-white/60">
+                <li><a href="/como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
+                <li><a href="#simulador" className="hover:text-white transition-colors">Simulador</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Preços</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Contato</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Suporte</a></li>
-                <li><a href="#" className="hover:text-white">Parceria</a></li>
-                <li><a href="#" className="hover:text-white">FAQ</a></li>
+              <h4 className="font-bold text-white mb-4">Empresa</h4>
+              <ul className="space-y-3 text-white/60">
+                <li><a href="#" className="hover:text-white transition-colors">Sobre</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Carreiras</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contato</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2026 PagSoftware. Todos os direitos reservados.</p>
+          <div className="border-t border-white/10 mt-12 pt-8 text-center">
+            <p className="text-white/40">
+              &copy; 2026 PagSoftware. Desenvolvido com ❤️ para o ecossistema B2B brasileiro.
+            </p>
           </div>
         </div>
       </footer>

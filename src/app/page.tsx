@@ -112,7 +112,7 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Produto</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Como funciona</a></li>
+                <li><a href="/como-funciona" className="hover:text-white">Como funciona</a></li>
                 <li><a href="#" className="hover:text-white">Simulador</a></li>
                 <li><a href="#" className="hover:text-white">Taxa de juros</a></li>
               </ul>

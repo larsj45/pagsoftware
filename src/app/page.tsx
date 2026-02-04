@@ -1,6 +1,7 @@
 'use client';
 
 import SimuladorFinanciamento from '@/components/SimuladorFinanciamento';
+import FormularioContato from '@/components/FormularioContato';
 import Logo from '@/components/Logo';
 
 export default function Home() {
@@ -173,6 +174,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Seção de Contato */}
+      <section id="contato" className="py-20 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Vamos{' '}
+              <span className="bg-gradient-to-r from-sky-400 to-purple-600 bg-clip-text text-transparent">
+                conversar?
+              </span>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Nossa equipe está pronta para ajudar você a encontrar a melhor solução de financiamento
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Informações de Contato */}
+            <div className="space-y-8">
+              <div className="glass-dark rounded-3xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  📞 Fale Conosco
+                </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-lg">📧</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">Email</h4>
+                      <a 
+                        href="mailto:contato@pagsoftware.com.br"
+                        className="text-sky-400 hover:text-sky-300 transition-colors"
+                      >
+                        contato@pagsoftware.com.br
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-lg">💬</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">WhatsApp</h4>
+                      <a 
+                        href="https://wa.me/5511973531005"
+                        target="_blank"
+                        className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                      >
+                        +55 11 97353-1005
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-lg">⏰</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">Horário</h4>
+                      <p className="text-white/70">Segunda a Sexta: 9h às 18h</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 p-4 glass rounded-xl">
+                  <p className="text-white/60 text-sm text-center">
+                    ⚡ Resposta em até 24 horas garantida
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Formulário de Contato */}
+            <div>
+              <FormularioContato tipo="contato" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-white/10 bg-black/20">
         <div className="max-w-7xl mx-auto px-6 py-12">
@@ -198,12 +281,19 @@ export default function Home() {
             </div>
             
             <div>
-              <h4 className="font-bold text-white mb-4">Empresa</h4>
+              <h4 className="font-bold text-white mb-4">Contato</h4>
               <ul className="space-y-3 text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors">Sobre</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Carreiras</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contato</a></li>
+                <li>
+                  <a href="mailto:contato@pagsoftware.com.br" className="hover:text-white transition-colors">
+                    📧 contato@pagsoftware.com.br
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/5511973531005" target="_blank" className="hover:text-white transition-colors">
+                    💬 +55 11 97353-1005
+                  </a>
+                </li>
+                <li><a href="#contato" className="hover:text-white transition-colors">Formulário</a></li>
               </ul>
             </div>
           </div>

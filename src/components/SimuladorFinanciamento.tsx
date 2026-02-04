@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import FormularioContato from './FormularioContato';
 
 interface SimuladorProps {
   className?: string;
@@ -9,6 +10,7 @@ interface SimuladorProps {
 export default function SimuladorFinanciamento({ className = '' }: SimuladorProps) {
   const [valor, setValor] = useState('');
   const [parcelas, setParcelas] = useState(12);
+  const [showForm, setShowForm] = useState(false);
   
   // Taxa de 2.5% a.m.
   const taxaMensal = 0.025;
@@ -137,17 +139,55 @@ Aguardo contato para prosseguir!`;
               </div>
             </div>
             
-            <div className="pt-4 border-t border-white/10">
-              <button 
-                onClick={handleSolicitarFinanciamento}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:from-green-400 hover:to-emerald-500 transition-all duration-300 shadow-lg hover:shadow-green-500/25 transform hover:scale-105"
-              >
-                🚀 Solicitar via WhatsApp
-              </button>
+            <div className="pt-4 border-t border-white/10 space-y-3">
+              <p className="text-white/60 text-sm text-center">
+                📋 Como deseja prosseguir?
+              </p>
+              
+              <div className="grid grid-cols-1 gap-3">
+                <button 
+                  onClick={() => setShowForm(true)}
+                  className="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white py-3 rounded-xl font-bold hover:from-sky-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-sky-500/25"
+                >
+                  📧 Formulário Completo
+                </button>
+                
+                <button 
+                  onClick={handleSolicitarFinanciamento}
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-xl font-bold hover:from-green-400 hover:to-emerald-500 transition-all duration-300 shadow-lg hover:shadow-green-500/25"
+                >
+                  💬 WhatsApp Direto
+                </button>
+              </div>
             </div>
           </div>
         )}
       </div>
+      
+      {/* Formulário de Contato */}
+      {showForm && resultado && (
+        <div className="mt-8">
+          <FormularioContato 
+            tipo="simulacao"
+            simulacao={{
+              valor,
+              parcelas,
+              valorParcela: resultado.valorParcela,
+              valorTotal: resultado.valorTotal,
+              jurosTotal: resultado.jurosTotal
+            }}
+          />
+          
+          <div className="text-center mt-4">
+            <button
+              onClick={() => setShowForm(false)}
+              className="text-white/60 hover:text-white text-sm transition-colors"
+            >
+              ← Voltar ao simulador
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

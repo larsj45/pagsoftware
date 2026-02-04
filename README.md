@@ -14,8 +14,9 @@ Plataforma de financiamento para software B2B. Permite que compradores paguem em
 
 - **Framework:** Next.js 15 com App Router
 - **Linguagem:** TypeScript
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS + Glassmorphism
 - **UI:** React 19
+- **Email:** Resend API
 - **Deploy:** Vercel
 - **Domínio:** pagsoftware.com.br
 
@@ -34,6 +35,34 @@ npm run dev
 
 # Acesse: http://localhost:3000
 ```
+
+## ⚙️ Configuração
+
+### **1. Variáveis de Ambiente**
+
+Copie `.env.example` para `.env.local` e configure:
+
+```bash
+cp .env.example .env.local
+```
+
+**Variáveis obrigatórias:**
+```env
+RESEND_API_KEY=re_XXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+### **2. Resend (Email)**
+
+1. Crie conta em [resend.com](https://resend.com)
+2. Gere uma API key
+3. Configure domínio `pagsoftware.com.br` no Resend
+4. Adicione a chave em `.env.local`
+
+### **3. Deploy no Vercel**
+
+Configure as variáveis no painel do Vercel:
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL=contato@pagsoftware.com.br`
 
 ## 📦 Scripts disponíveis
 

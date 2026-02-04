@@ -1,6 +1,7 @@
 'use client';
 
 import SimuladorFinanciamento from '@/components/SimuladorFinanciamento';
+import Logo from '@/components/Logo';
 
 export default function Home() {
 
@@ -10,9 +11,9 @@ export default function Home() {
       <header className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">PagSoftware</h1>
-              <p className="text-sm text-gray-600">Financiamento para Software B2B</p>
+            <div className="flex flex-col">
+              <Logo variant="color" size="md" />
+              <p className="text-sm text-gray-600 mt-1">Financiamento para Software B2B</p>
             </div>
             <button 
               onClick={() => window.open('https://wa.me/5511973531005?text=Olá! Gostaria de saber mais sobre o PagSoftware.', '_blank')}
@@ -105,7 +106,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">PagSoftware</h3>
+              <div className="mb-4">
+                <Logo variant="white" size="md" />
+              </div>
               <p className="text-gray-400">
                 Facilitando o acesso a software B2B através de financiamento inteligente.
               </p>

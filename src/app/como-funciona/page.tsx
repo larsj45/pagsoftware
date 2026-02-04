@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Logo from '@/components/Logo';
 
 export default function ComoFunciona() {
   return (
@@ -9,11 +10,11 @@ export default function ComoFunciona() {
       <header className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600">
-                PagSoftware
+            <div className="flex flex-col">
+              <Link href="/" className="hover:opacity-80 transition-opacity">
+                <Logo variant="color" size="md" />
               </Link>
-              <p className="text-sm text-gray-600">Financiamento para Software B2B</p>
+              <p className="text-sm text-gray-600 mt-1">Financiamento para Software B2B</p>
             </div>
             <button 
               onClick={() => window.open('https://wa.me/5511973531005?text=Olá! Gostaria de saber mais sobre o PagSoftware.', '_blank')}
@@ -205,7 +206,9 @@ export default function ComoFunciona() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="mb-6">
-            <h3 className="text-xl font-bold mb-2">PagSoftware</h3>
+            <div className="mb-4">
+              <Logo variant="white" size="md" />
+            </div>
             <p className="text-gray-400">
               Facilitando o acesso a software B2B através de financiamento inteligente.
             </p>

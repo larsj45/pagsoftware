@@ -1,3 +1,7 @@
+'use client';
+
+import Link from 'next/link';
+
 export default function ComoFunciona() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -6,9 +10,9 @@ export default function ComoFunciona() {
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <a href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600">
+              <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600">
                 PagSoftware
-              </a>
+              </Link>
               <p className="text-sm text-gray-600">Financiamento para Software B2B</p>
             </div>
             <button 

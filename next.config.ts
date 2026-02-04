@@ -2,13 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     domains: ['pagsoftware.com.br']
-  },
-  // Otimizações para produção
-  experimental: {
-    optimizeCss: true
   }
 };
 

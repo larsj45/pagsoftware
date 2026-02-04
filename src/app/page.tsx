@@ -1,3 +1,5 @@
+'use client';
+
 import SimuladorFinanciamento from '@/components/SimuladorFinanciamento';
 
 export default function Home() {

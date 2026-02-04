@@ -23,7 +23,7 @@ Plataforma de financiamento para software B2B. Permite que compradores paguem em
 
 ```bash
 # Clone o repositório
-git clone https://github.com/[username]/pagsoftware.git
+git clone https://github.com/larsj45/pagsoftware.git
 cd pagsoftware
 
 # Instale as dependências
